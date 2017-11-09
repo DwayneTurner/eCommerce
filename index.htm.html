@@ -1,0 +1,193 @@
+<html>
+    <head>
+        <Title>Dwayne's Sneakerland</Title>
+    <style>
+        img{
+            width:100px;
+        }
+        input{
+            width:30px;
+        
+        }
+
+    .button {
+  border-radius: 4px;
+  background-color: #000;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+    body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+
+
+
+    </style>
+
+    <script>
+        function buyingsomething(){
+            var quantity1 = document.getElementById("quantity1")
+            var quantity2 = document.getElementById("quantity2")
+            var quantity3 = document.getElementById("quantity3")
+            var quantity4 = document.getElementById("quantity4")
+            var quantity5 = document.getElementById("quantity5")
+            var price1 = 199.99 
+            var price2 = 119.99  
+            var price3 = 204.99 
+            var price4 = 209.99 
+            var price5 = 229.99 
+            var subtotal = (price1 * quantity1.value) + (price2 * quantity2.value) + (price3 * quantity3.value) + (price4 * quantity4.value) + (price5 * quantity5.value)
+            var shipping = 0.00
+            var totitems = quantity1.value + quantity2.value + quantity3.value + quantity4.value + quantity5.value
+            var profit = subtotal - 500.00
+            if(subtotal<100.00){
+                 shipping = 25.00;
+            }else if(subtotal>=100.00 && subtotal<=200.00){
+                shipping = 10.00;
+            }else if(subtotal>=200.00){
+                shipping = 0.00;
+
+            }
+           
+        
+            var total = (subtotal + shipping) * 1.0875
+            var output = document.getElementById("output")
+            var build="";
+            build+="Your subtotal is: "+ subtotal +"<br>";
+            build+="Tax is 8.75% " +"<br>";
+            build+="Shipping fee is: $"+ shipping +"<br>";
+            build+="------------------<br>";
+            build+="Your total is:  "+ total +"<br>";
+
+            output.innerHTML =build;
+            console.log("You sold " + totitems + " items")
+            console.log("The company has made $" + profit + "in profit")
+
+        }
+
+    </script>
+    </head>
+
+    <body>
+        <div>
+            <h2> Jordan Sneakers </h2>
+            <img src = "images\Jordan 4s Retro Royalty.png"><br>
+            <span>$199.99</span>
+            <p>
+            Jordan 4s Retro Royalty
+            </p>
+            <input id="quantity1" type="text" placeholder= "Qty">
+            <select>
+            <option value="Choose Size Below">Size</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+            <option value="8.5">8.5</option>
+            <option value="9">9</option>
+            <option value="9.5">9.5</option>
+            <option value="10">10</option>
+            <option value="10.5">10.5</option>
+            <option value="11">11</option>
+            <option value="11.5">11.5</option>
+            <option value="10.5">10.5</option>
+            <option value="10.5">10.5</option>
+
+        </select>
+
+        </div>
+        <div>
+            
+            <img src = "images\Jordan 1s Mid New Love 2017.png"><br>
+            <span>$119.99</span>
+            <p>
+            Jordan 1s Mid New Love 2017
+            </p>
+            <input id="quantity2" type="text" placeholder= "Qty">
+
+        </div>
+        <div>
+            
+            <img src = "images\Jordan 5s Blue Suede.png"><br>
+            <span>$204.99</span>
+            <p>
+            Jordan 5s Blue Suede 
+            </p>
+            <input id="quantity3" type="text" placeholder= "Qty">
+
+        </div>
+        <div>
+            
+            <img src = "images\Jordan 12s French Blues.png"><br>
+            <span>$209.99</span>
+            <p>
+            Jordan 12s French Blues 
+            </p>
+            <input id="quantity4" type="text" placeholder= "Qty">
+
+        </div>
+        <div>
+            
+            <img src = "images\Jordan 13s DMP.png"><br>
+            <span>$229.99</span>
+            <p>
+            Jordan 13s DMP
+            </p>
+            <input id="quantity5" type="text" placeholder= "Qty">
+
+            <br><br><br><button class="button" onclick = "buyingsomething()"><span>Checkout </span></button>
+            
+
+        </div>
+        <div id="output"></div>
+
+        <h1>Dwayne's Sneakerland</h1>
+    
+    </body>
+</html>
+
+
+
+
+        
+        
+
+
+
+
