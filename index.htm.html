@@ -56,6 +56,10 @@ h1 {
     color: white;
     text-align: center;
 }
+p{
+    width: 500px;
+}
+
 
 
 
@@ -73,11 +77,21 @@ h1 {
             var price2 = 119.99  
             var price3 = 204.99 
             var price4 = 209.99 
-            var price5 = 229.99 
+            var price5 = 229.99
+            var price1tot = (price1 * quantity1.value)
+            var price2tot = (price2 * quantity2.value)
+            var price3tot = (price3 * quantity3.value)
+            var price4tot = (price4 * quantity4.value)
+            var price5tot = (price5 * quantity5.value)
             var subtotal = (price1 * quantity1.value) + (price2 * quantity2.value) + (price3 * quantity3.value) + (price4 * quantity4.value) + (price5 * quantity5.value)
             var shipping = 0.00
-            var totitems = quantity1.value + quantity2.value + quantity3.value + quantity4.value + quantity5.value
-            var profit = subtotal - 500.00
+            var totitems = (quantity1.value * 1) + (quantity2.value * 1) + (quantity3.value * 1) + (quantity4.value * 1) + (quantity5.value * 1)
+            var price1profit = price1tot - 100.00
+            var price2profit = price2tot - 100.00
+            var price3profit = price3tot - 100.00
+            var price4profit = price4tot - 100.00
+            var price5profit = price5tot - 100.00
+            var totprofit = price1profit + price2profit + price3profit + price4profit + price5profit
             if(subtotal<100.00){
                  shipping = 25.00;
             }else if(subtotal>=100.00 && subtotal<=200.00){
@@ -95,11 +109,24 @@ h1 {
             build+="Tax is 8.75% " +"<br>";
             build+="Shipping fee is: $"+ shipping +"<br>";
             build+="------------------<br>";
-            build+="Your total is:  "+ total +"<br>";
+            build+="Your total is:  "+ Math.round(total,2); +"<br>";
 
             output.innerHTML =build;
             console.log("You sold " + totitems + " items")
-            console.log("The company has made $" + profit + "in profit")
+            console.log("The company has made $" + Math.round(totprofit) + " in profit")
+            if(subtotal>= 750.00){
+                var discounttot = subtotal * 0.35
+                var discounttot2 = subtotal - discounttot
+                var build="";
+                build+="Your subtotal is: "+ subtotal +"<br>";
+                build+="Tax is 8.75% " +"<br>";
+                build+="Shipping fee is: $"+ shipping +"<br>";
+                build+="Congratulations,you have earned a discount of 35% off!" + "<br>";
+                build+="-------------------------------------------------------<br>";           
+                build+="Your total is:  "+ Math.round(discounttot,2); +"<br>";
+                output.innerHTML =build;
+
+            }
 
         }
 
@@ -108,26 +135,25 @@ h1 {
 
     <body>
         <div>
-            <h2> Jordan Sneakers </h2>
+            <h2> Jordan Sneakers SIZES 10-13 *ONLY*  </h2>
             <img src = "images\Jordan 4s Retro Royalty.png"><br>
             <span>$199.99</span>
             <p>
             Jordan 4s Retro Royalty
+            Heads up Air Jordan 4 fans, a fresh new colorway is said to be releasing in a few months. Currently known as the Air Jordan 4 Royalty, this clean iteration of the model boasts a timeless Black and Gold colorway. The official colorway of the Air Jordan 4 Royalty is currently listed as Black/Metallic Gold and White. The shoe is done in a Black suede, which is something we’ve seen on the model several times in the past. What makes this pair stand out from other Black suede Jordan 4s is the fact that it comes accented by the Metallic Gold hits noted on the eyelets and Jumpman branding on the tongue and heel. A clean White midsole and set of Black laces round out the look of the shoe.
+            <br> Did I mention that it also comes with a leather heel tab?! Nice! Fairly simple in color scheme, but in my opinion Black and Gold sneakers are always a winning combination.
             </p>
             <input id="quantity1" type="text" placeholder= "Qty">
             <select>
             <option value="Choose Size Below">Size</option>
-            <option value="7.5">7.5</option>
-            <option value="8">8</option>
-            <option value="8.5">8.5</option>
-            <option value="9">9</option>
-            <option value="9.5">9.5</option>
             <option value="10">10</option>
             <option value="10.5">10.5</option>
             <option value="11">11</option>
             <option value="11.5">11.5</option>
-            <option value="10.5">10.5</option>
-            <option value="10.5">10.5</option>
+            <option value="12">12</option>
+            <option value="12.5">12.5</option>
+            <option value="13">13</option>
+           
 
         </select>
 
@@ -138,8 +164,27 @@ h1 {
             <span>$119.99</span>
             <p>
             Jordan 1s Mid New Love 2017
+            Who here has the Air Jordan 1 Old Love, New Love Pack from back in the day? Jordan Brand released those two shoes as a pack 10 years ago. This means that if you wanted one, you also had to buy the other. Now, it looks like Jordan Brand is bringing back one-half of the pack, the Air Jordan 1 Mid New Love.
+
+Originally released back in 2007, the Air Jordan 1 Mid New Love represents Michael Jordan’s love for motorcycle racing. <br>
+It is made out of leather in a Yellow (Varsity Maize) and Black color scheme. The 2017 version comes with a new feature 
+on the upper. Instead of coming with a jeweled Wings branding on the ankle, Jordan Brand opts to give it a more traditional look by replacing it with a stamped/painted on finish. Jumpman branding on the tongue, two set of laces (Yellow and Black), and a White midsole and Yellow translucent outsole round out the look of the shoe. 
+Expect these to release sometime this month. We will provide the exact release date as soon as it’s made public.
             </p>
             <input id="quantity2" type="text" placeholder= "Qty">
+            <select>
+            <option value="Choose Size Below">Size</option>
+            <option value="10">10</option>
+            <option value="10.5">10.5</option>
+            <option value="11">11</option>
+            <option value="11.5">11.5</option>
+            <option value="12">12</option>
+            <option value="12.5">12.5</option>
+            <option value="13">13</option>
+           
+
+        </select>
+
 
         </div>
         <div>
@@ -147,9 +192,24 @@ h1 {
             <img src = "images\Jordan 5s Blue Suede.png"><br>
             <span>$204.99</span>
             <p>
-            Jordan 5s Blue Suede 
+            Jordan 5s Blue Suede<br>
+            The Air Jordan 5 Blue Suede is a brand new flavor/look of His Airness’ 5th signature shoe. This brand new look comes with a suede upper done in a Royal Blue colorway. Even more of the same Blue hues can be seen on the midsole, netting, laces and eyelets. Adding contrast to the shoe is the Black on the lining, the jagged pattern on the midsole and the Jumpman hits on the tongue, heel and icy translucent outsole. 
+            Jordan Brand also decided to add 3M reflective tongue to help give the shoe some additional pop. Stay tuned as more information begins to surface. 
             </p>
             <input id="quantity3" type="text" placeholder= "Qty">
+            <select>
+            <option value="Choose Size Below">Size</option>
+            <option value="10">10</option>
+            <option value="10.5">10.5</option>
+            <option value="11">11</option>
+            <option value="11.5">11.5</option>
+            <option value="12">12</option>
+            <option value="12.5">12.5</option>
+            <option value="13">13</option>
+           
+
+        </select>
+
 
         </div>
         <div>
@@ -157,9 +217,26 @@ h1 {
             <img src = "images\Jordan 12s French Blues.png"><br>
             <span>$209.99</span>
             <p>
-            Jordan 12s French Blues 
+            Jordan 12s French Blues<br>
+            The Air Jordan 12 French Blue may not be an OG colorway, but many adore it more than classic iterations of the silhouette. Last seen in 2004, the popular finish is finally scheduled to receive its first retro treatment after twelve years, as the model celebrates its 20th anniversary in 2016.
+
+Maintaining its distinctive palette overall, the silhouette is comprised of White tumbled leather, while French Blue overlays are prominent on its forefoot, outsole unit and rear portion. 
+Metallic Silver accents provided by the top eyelets, Black Jumpman branding on the tongue and subtle Grey panels on the sides consist as notable contrasting elements. 
             </p>
             <input id="quantity4" type="text" placeholder= "Qty">
+            <select>
+            <option value="Choose Size Below">Size</option>
+            <option value="10">10</option>
+            <option value="10.5">10.5</option>
+            <option value="11">11</option>
+            <option value="11.5">11.5</option>
+            <option value="12">12</option>
+            <option value="12.5">12.5</option>
+            <option value="13">13</option>
+           
+
+        </select>
+
 
         </div>
         <div>
@@ -167,9 +244,24 @@ h1 {
             <img src = "images\Jordan 13s DMP.png"><br>
             <span>$229.99</span>
             <p>
-            Jordan 13s DMP
+            Jordan 13s DMP<br>
+            The Air Jordan 13 DMP (Defining Moments Pack) is a limited edition version of Michael Jordan’s thirteenth signature shoe. It is part of a two-pair shoe collection inspired by MJ’s sixth and final NBA championship from 1998. 
+            The shoe features a mix of premium white leather and Metallic Gold detailing.
             </p>
             <input id="quantity5" type="text" placeholder= "Qty">
+            <select>
+            <option value="Choose Size Below">Size</option>
+            <option value="10">10</option>
+            <option value="10.5">10.5</option>
+            <option value="11">11</option>
+            <option value="11.5">11.5</option>
+            <option value="12">12</option>
+            <option value="12.5">12.5</option>
+            <option value="13">13</option>
+           
+
+        </select>
+
 
             <br><br><br><button class="button" onclick = "buyingsomething()"><span>Checkout </span></button>
             
@@ -177,7 +269,7 @@ h1 {
         </div>
         <div id="output"></div>
 
-        <h1>Dwayne's Sneakerland</h1>
+        <h1>*IF YOUR SUBTOTAL IS HIGHER THAN $200.00, GET SHIPPING FREE!!!*</h1>
     
     </body>
 </html>
